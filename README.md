@@ -43,6 +43,11 @@ typescript                      4.9.5<br/>
 -file saver for export csv<br/>
 -angular default router<br/>
 
+# Implemented extras aside from the functionality
+
+-implemented sorting<br/>
+-implemented export via csv of the data<br/>
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
