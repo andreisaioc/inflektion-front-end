@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
-# Summary
+# Summary 
 
 Everything was split with components for ease of work and integration with future development.
 
@@ -16,7 +16,7 @@ This project uses angular v15.2
 This project uses node v22.9.0
 
 Library used:
-
+ 
 -font awesome for some icons
 -bootstrap for css
 -file saver for export csv
