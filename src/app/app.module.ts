@@ -13,7 +13,7 @@ import { ApprovalsComponent } from './pages/approvals/approvals.component';
 import { DataTableComponent } from './modules/data-table/data-table.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-import { TableDataService } from './services/table-data.service';
+import { TableDataService } from './services/table-data/table-data.service';
 
 
 @NgModule({

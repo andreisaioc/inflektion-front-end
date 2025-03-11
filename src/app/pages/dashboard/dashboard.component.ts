@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { TableDataService } from 'src/app/services/table-data.service'; // Import your service
+import { TableDataService } from 'src/app/services/table-data/table-data.service'; // Import your service
 import { DataTableComponent } from 'src/app/modules/data-table/data-table.component';
 
 @Component({
