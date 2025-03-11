@@ -38,20 +38,24 @@ export class DataTableComponent implements OnChanges {
   }
 
 
+  // export the csv using the file save as 
+  // this function is used in another component 
+  
   exportToCSV(): void {
-
-    if(this.data.length == 0)
-    {
+    if (this.data.length == 0) {
       alert("Data is not loaded (yet)");
-    }
-    else
-    {
-
+    } else {
       const csvData = this.convertToCSV(this.data);
       const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
-      saveAs(blob, 'data-table.csv');
+  
+      const now = new Date();
+      const formattedDate = now.toISOString().replace(/T/, '_').replace(/\..+/, '').replace(/:/g, '-'); // Format: YYYY-MM-DD_HH-MM-SS
+      const fileName = `data-table_${formattedDate}.csv`;
+  
+      saveAs(blob, fileName);
     }
   }
+  
 
 
 
