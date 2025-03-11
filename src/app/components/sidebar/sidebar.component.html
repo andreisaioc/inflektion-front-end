@@ -1,0 +1,20 @@
+<div class="sidebar" [class.open]="sidebarOpen">
+    <div class="logo">
+        <img src="assets/logo.png" alt="Company Logo" class="img-fluid" style="max-width: 164px;">
+    </div>
+    <nav class="nav flex-column">
+        <a routerLink="/dashboard" routerLinkActive="active" class="nav-link d-flex" (click)="closeSidebar()">
+            <img src="assets/dash-icon.png" height="24" width="24" alt="Dashboard Icon" class="icon"> <span>Dashboard</span>
+          </a>
+          
+        <a routerLink="/partners" routerLinkActive="active" class="nav-link" (click)="closeSidebar()">
+            <img src="assets/user-icon.png" height="24" width="24" alt="user Icon" class="icon">
+            <span>Partners</span></a>
+        <a routerLink="/approval" routerLinkActive="active" class="nav-link" (click)="closeSidebar()">
+            <img src="assets/check-icon.png" height="24" width="24" alt="check Icon" class="icon">
+            <span>Approval</span></a>
+    </nav>
+</div>
+
+<!-- Overlay -->
+<div class="overlay" [class.active]="sidebarOpen" (click)="closeSidebar()"></div>

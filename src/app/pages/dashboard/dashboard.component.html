@@ -1,0 +1,58 @@
+
+
+
+<div class="small-title-top mb-3">Dashboard</div>
+
+<div class="row mb-4">
+
+
+    <div class="col-12 col-md-6">
+        <div class="ps-3">
+        <div class="date-dropdown">
+            <span class="calendar-icon"><i class="fas fa-calendar-alt"></i></span>
+            <span class="date-range">July 6, 2022 – Aug 5, 2022</span>
+            <span class="dropdown-arrow">▼</span>
+        
+            <!-- Hidden dropdown content -->
+            <div class="dropdown-content">
+                <input type="date" id="start-date" value="2022-07-06">
+                <input type="date" id="end-date" value="2022-08-05">
+            </div>
+        </div>
+        
+    </div>
+    </div>
+
+
+    <div class="col-12 col-md-6 d-flex">
+        <div class="btn-spacer">
+            <button class="gradient-btn" (click)="chooseColumnsClick()">
+                Choose Columns
+                <span class="icon">☰</span>
+            </button>
+        </div>
+
+
+        <div class="btn-spacer">
+            <button class="gradient-btn" (click)="messagePartnersClick()">
+                Message Partners
+                <span class="icon"><i class="far fa-envelope"></i></span>
+            </button>
+        </div>
+
+
+        <div class="btn-spacer">
+            <button class="gradient-btn" (click)="exportListClick()">
+                Export List
+                <span class="icon"><i class="fas fa-download"></i></span>
+            </button>
+        </div>
+    </div>
+
+</div>
+
+
+<app-data-table [data]="data" [isLoading]="isLoading"></app-data-table>
+
+
+

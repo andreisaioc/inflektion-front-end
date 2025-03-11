@@ -1,0 +1,74 @@
+.card-table-wrapper
+{
+    background-color: #fff;
+    border-radius: 12px;  
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);   
+    transition: box-shadow 0.3s ease-in-out;  
+    border:0;
+}
+
+thead tr th
+{
+    background-color: #031050;
+    color:white;
+    padding-top:14px;
+    padding-bottom:14px;
+    padding-left: 25px;
+}
+tbody tr td
+{
+
+
+    padding-left: 25px;
+}
+
+
+
+table {
+    border-collapse: separate; /* Required for border-radius to work */
+    border-spacing: 0; /* Ensures no gaps between cells */
+    width: 100%; /* Optional for full-width tables */
+    overflow: hidden; /* Ensures rounded corners show properly */
+    font-size:14px
+}
+
+thead {
+    background-color: #f5f5f5;
+}
+
+thead th {
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 300;
+ 
+}
+
+thead th:first-child {
+    border-top-left-radius: 12px; /* Top-left corner */
+}
+
+thead th:last-child {
+    border-top-right-radius: 12px; /* Top-right corner */
+}
+
+
+tbody tr:nth-child(odd) td {
+    background-color: #F4F7FE; 
+    border: 0
+}
+
+tbody tr:nth-child(even) td {
+    background-color: #F9FBFE; 
+    border:0
+}
+
+.btn-primary
+{
+    background-color: #5E33CE;
+    border-radius: 25px;
+    padding: 7px 15px;
+    color: white;
+    border:0
+}
+
+ 

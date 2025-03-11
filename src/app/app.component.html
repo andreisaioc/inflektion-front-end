@@ -1,0 +1,38 @@
+<div class="d-flex vh-100">
+  <!-- Sidebar -->
+  <app-sidebar class=""></app-sidebar>
+
+  <!-- Main Content Area -->
+  <div class="content container-fluid p-4">
+      <div class="d-flex align-items-center  ">
+        <div class="d-flex flex-fill">
+          <div class="sidebar-toggle btn  " (click)="toggleSidebar()">
+              &#9776;
+          </div>
+
+          <div class="d-flex">
+          <h1 class="ms-3">Power Plate</h1>
+            <span class="dropdown-arrow-title">▼</span>
+          </div>
+        </div>
+
+
+        <div class="">
+
+          <div class="user-profile">
+            <div class="user-avatar">HD</div>
+            <div class="user-info">
+                <span class="user-name">TEST</span>
+                <span class="user-role">User</span>
+            </div>
+        </div>
+        
+
+        </div>
+
+
+      </div>
+
+      <router-outlet></router-outlet>
+  </div>
+</div>
