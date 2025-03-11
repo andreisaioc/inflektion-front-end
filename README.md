@@ -13,31 +13,30 @@ Error handling: we are going to display an error instead of the table in case we
 # Versions
 
 This project uses angular v15.2<br/>
-This project uses node v22.9.0<br/>
+This project uses node v22.9.0<br/><br/>
 
-Angular CLI: 15.2.11
-Node: 22.9.0 (Unsupported)
-Package Manager: npm 10.8.3
-OS: darwin arm64
+Angular CLI: 15.2.11<br/>
+Node: 22.9.0 (Unsupported)<br/>
+Package Manager: npm 10.8.3<br/>
+OS: darwin arm64<br/><br/>
 
-Angular: 15.2.10
-... animations, common, compiler, compiler-cli, core, forms
-... platform-browser, platform-browser-dynamic, router
-
-Package                         Version
----------------------------------------------------------
-@angular-devkit/architect       0.1502.11
-@angular-devkit/build-angular   15.2.11
-@angular-devkit/core            15.2.11
-@angular-devkit/schematics      15.2.11
-@angular/cli                    15.2.11
-@schematics/angular             15.2.11
-rxjs                            7.8.2
-typescript                      4.9.5
+Angular: 15.2.10<br/>
+... animations, common, compiler, compiler-cli, core, forms<br/>
+... platform-browser, platform-browser-dynamic, router<br/><br/>
 
 
+@angular-devkit/architect       0.1502.11<br/>
+@angular-devkit/build-angular   15.2.11<br/>
+@angular-devkit/core            15.2.11<br/>
+@angular-devkit/schematics      15.2.11<br/>
+@angular/cli                    15.2.11<br/>
+@schematics/angular             15.2.11<br/>
+rxjs                            7.8.2<br/>
+typescript                      4.9.5<br/>
 
-Library used:<br/><br/>
+
+
+# Libraries used
  
 -font awesome for some icons<br/>
 -bootstrap for css<br/>
