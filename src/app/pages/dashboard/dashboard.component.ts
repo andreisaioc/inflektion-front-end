@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { TableDataService } from 'src/app/services/table-data/table-data.service'; // Import your service
 import { DataTableComponent } from 'src/app/modules/data-table/data-table.component';
+import { ColumnConfigService } from 'src/app/services/table-columns/column-config.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,33 @@ import { DataTableComponent } from 'src/app/modules/data-table/data-table.compon
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private tableDataService: TableDataService) {} // Inject the service
+
+  availableColumns = ['ID', 'Name', 'Type', 'Contract', 'Gross Sales', 'Commissions', 'Conversions'];
+  selectedColumns: string[] = [...this.availableColumns]; // Default all selected
+
+
+
+  constructor(private tableDataService: TableDataService, 
+    private columnConfigService: ColumnConfigService) {
+
+      this.columnConfigService.setVisibleColumns(this.selectedColumns);
+
+    } // Inject the service
+
+
+
+  updateColumnVisibility() {
+    this.columnConfigService.setVisibleColumns(this.selectedColumns);
+  }
+
+
+  toggleColumn(column: string) {
+    if (this.selectedColumns.includes(column)) {
+      this.selectedColumns = this.selectedColumns.filter(c => c !== column);
+    } else {
+      this.selectedColumns.push(column);
+    }
+  }
 
   data: any[] = [];
   isLoading: boolean = true;

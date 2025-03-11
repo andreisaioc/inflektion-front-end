@@ -14,6 +14,7 @@ import { DataTableComponent } from './modules/data-table/data-table.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { TableDataService } from './services/table-data/table-data.service';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { TableDataService } from './services/table-data/table-data.service';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   providers: [TableDataService],
   bootstrap: [AppComponent]

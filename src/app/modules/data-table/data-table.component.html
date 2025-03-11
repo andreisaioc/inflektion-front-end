@@ -4,30 +4,30 @@
         <table class="table table-hover align-middle">
           <thead>
             <tr>
-              <th (click)="toggleSortOrder('id')" style="cursor: pointer;">
+              <th *ngIf="visibleColumns.includes('ID')" (click)="toggleSortOrder('id')" style="cursor: pointer;">
                 ID 
                 <i class="fa-solid fa-sort"></i>
               </th>
-              <th (click)="toggleSortOrder('partnerName')" style="cursor: pointer;">
+              <th  *ngIf="visibleColumns.includes('Name')"  (click)="toggleSortOrder('partnerName')" style="cursor: pointer;">
                 Name 
                 <i class="fa-solid fa-sort"></i>
               </th>
-              <th (click)="toggleSortOrder('partnerType')" style="cursor: pointer;">
+              <th  *ngIf="visibleColumns.includes('Type')"  (click)="toggleSortOrder('partnerType')" style="cursor: pointer;">
                 Type 
                 <i class="fa-solid fa-sort"></i>
               </th>
-              <th style="cursor: pointer;" (click)="toggleSortOrder('contract')">
+              <th  *ngIf="visibleColumns.includes('Contract')"  style="cursor: pointer;" (click)="toggleSortOrder('contract')">
                 Contract <i class="fa-solid fa-sort"></i>
               </th>
-              <th (click)="toggleSortOrder('grosssales')" style="cursor: pointer;">
+              <th  *ngIf="visibleColumns.includes('Gross Sales')"  (click)="toggleSortOrder('grosssales')" style="cursor: pointer;">
                 Gross Sales 
                 <i class="fa-solid fa-sort"></i>
               </th>
-              <th (click)="toggleSortOrder('commissions')" style="cursor: pointer;">
+              <th  *ngIf="visibleColumns.includes('Commissions')"  (click)="toggleSortOrder('commissions')" style="cursor: pointer;">
                 Commissions 
                 <i class="fa-solid fa-sort"></i>
               </th>
-              <th (click)="toggleSortOrder('conversions')" style="cursor: pointer;">
+              <th  *ngIf="visibleColumns.includes('Conversions')"  (click)="toggleSortOrder('conversions')" style="cursor: pointer;">
                 Conversions 
                 <i class="fa-solid fa-sort"></i>
               </th>
@@ -36,18 +36,18 @@
           </thead>
           <tbody>
             <tr *ngFor="let entry of dataToDisplay">
-              <td>{{ entry.id }}</td>
-              <td>{{ entry.partnerName }}</td>
-              <td>{{ entry.partnerType }}</td>
-              <td>{{ entry.contract }}</td>
-              <td>{{ entry.grosssales | currency }}</td>
-              <td>
+              <td  *ngIf="visibleColumns.includes('ID')">{{ entry.id }}</td>
+              <td  *ngIf="visibleColumns.includes('Name')">{{ entry.partnerName }}</td>
+              <td  *ngIf="visibleColumns.includes('Type')">{{ entry.partnerType }}</td>
+              <td  *ngIf="visibleColumns.includes('Contract')">{{ entry.contract }}</td>
+              <td  *ngIf="visibleColumns.includes('Gross Sales')">{{ entry.grosssales | currency }}</td>
+              <td  *ngIf="visibleColumns.includes('Commissions')">
                 <span *ngIf="entry.commissions !== null; else noData">
                   {{ entry.commissions | currency }}
                 </span>
                 <ng-template #noData>n/a</ng-template>
               </td>
-              <td>{{ entry.conversions }}</td>
+              <td  *ngIf="visibleColumns.includes('Conversions')">{{ entry.conversions }}</td>
               <td>
                 <button class="btn btn-primary btn-sm" (click)="detailsFetch(entry.id)">
                   <i class="fas fa-list-ul"></i> Details

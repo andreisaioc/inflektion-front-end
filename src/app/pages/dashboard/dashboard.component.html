@@ -18,9 +18,39 @@
 </div>
 
 
+<div class="modal fade" id="columnModal" tabindex="-1" aria-labelledby="columnModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Select Columns</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div *ngFor="let column of availableColumns" class="form-check">
+              <input 
+                type="checkbox"
+                class="form-check-input"
+                [checked]="selectedColumns.includes(column)"
+                (change)="toggleColumn(column)"
+              />
+              <label class="form-check-label">{{ column }}</label>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="updateColumnVisibility()" data-bs-dismiss="modal">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
     <div class="col-12 col-md-6 d-flex mb-4 flex-column flex-md-row">
         <div class="btn-spacer">
-            <button class="gradient-btn" (click)="chooseColumnsClick()">
+            <button class="gradient-btn"  data-bs-toggle="modal" data-bs-target="#columnModal">
                 Choose Columns
                 <span class="icon">☰</span>
             </button>

@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, EventEmitter, Output, SimpleChanges } from '@angular/core';
 import { saveAs } from 'file-saver'; // Import file-saver
+import { ColumnConfigService } from 'src/app/services/table-columns/column-config.service';
 
 @Component({
   selector: 'app-data-table',
@@ -13,6 +14,17 @@ export class DataTableComponent implements OnChanges {
 
   @Output() exportCSV: EventEmitter<void> = new EventEmitter<void>(); // Event emitter for export
 
+
+  visibleColumns: string[] = [];
+
+  constructor(private columnConfigService: ColumnConfigService) {}
+
+  ngOnInit() {
+    
+    this.columnConfigService.columnVisibility$.subscribe(columns => {
+      this.visibleColumns = columns;
+    });
+  }
 
   dataToDisplay: any[] = [];
   currentPage: number = 1;
@@ -40,7 +52,7 @@ export class DataTableComponent implements OnChanges {
 
   // export the csv using the file save as 
   // this function is used in another component 
-  
+
   exportToCSV(): void {
     if (this.data.length == 0) {
       alert("Data is not loaded (yet)");

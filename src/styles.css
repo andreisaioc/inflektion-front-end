@@ -203,7 +203,22 @@ h1
 }
 
 
+.btn
+{
+    border-radius: 25px;
+    padding: 7px 15px;
+}
 
+.btn-primary
+{
+    background-color: #5E33CE;
+    border: 0
+}
+
+.btn-primary:hover
+{
+    background-color:#723bff
+}
 
 
 @media (min-width: 1024px) {
