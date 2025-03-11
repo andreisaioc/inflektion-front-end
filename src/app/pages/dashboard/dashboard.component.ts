@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit , ViewChild} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { DataTableComponent } from 'src/app/modules/data-table/data-table.component';
 
 
 @Component({
@@ -14,6 +15,9 @@ export class DashboardComponent implements OnInit {
 
   data: any[] = [];
   isLoading: boolean = true;
+  isError: boolean = false;
+
+  @ViewChild(DataTableComponent) dataTable!: DataTableComponent;
 
 
   ngOnInit(): void {
@@ -32,8 +36,13 @@ export class DashboardComponent implements OnInit {
 
 
   exportListClick():void{
-    alert("export list click clicked")
+    if (this.dataTable) {
+      this.dataTable.exportToCSV();
+    }
   }
+
+
+ 
 
 
   fetchData(): void {
@@ -47,6 +56,7 @@ export class DashboardComponent implements OnInit {
         error: (error) => {
           console.error('Error fetching data:', error);
           this.isLoading = false;  
+          this.isError = true;
         }
       });
   }

@@ -1,110 +1,107 @@
-<div class="p-3" *ngIf="!isLoading; else loading">
-<div class="card card-table-wrapper">
-<div class="table-responsive" >
-    <table class="table table-hover align-middle" >
-      <thead class="">
-        <tr>
-    
-
-          <th (click)="toggleSortOrder('id')" style="cursor: pointer;">
-            ID 
-            <i class="fa-solid fa-sort"></i>
-          </th>
-      
-          <th (click)="toggleSortOrder('partnerName')" style="cursor: pointer;">
-            Name 
-            <i class="fa-solid fa-sort"></i>
-          </th>
-      
-          <th (click)="toggleSortOrder('partnerType')" style="cursor: pointer;">
-            Type 
-            <i class="fa-solid fa-sort"></i>
-          </th>
-
-          <th style="cursor: pointer;" (click)="toggleSortOrder('contract')">Contract <i class="fa-solid fa-sort" ></i></th>
-      
-          <th (click)="toggleSortOrder('grosssales')" style="cursor: pointer;">
-            Gross Sales 
-            <i class="fa-solid fa-sort"></i>
-          </th>
-      
-          <th (click)="toggleSortOrder('commissions')" style="cursor: pointer;">
-            Commissions 
-            <i class="fa-solid fa-sort"></i>
-          </th>
-      
-          <th (click)="toggleSortOrder('conversions')" style="cursor: pointer;">
-            Conversions 
-            <i class="fa-solid fa-sort"></i>
-          </th>
-
-
-
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let entry of dataToDisplay">
-          <td>{{ entry.id }}</td>
-          <td>{{ entry.partnerName }}</td>
-          <td>{{ entry.partnerType }}</td>
-          <td>{{ entry.contract }}</td>
-          <td>{{ entry.grosssales | currency }}</td>
-          <td>
-            <span *ngIf="entry.commissions !== null; else noData">
-              {{ entry.commissions | currency }}
-            </span>
-            <ng-template #noData>n/a</ng-template>
-          </td>
-          <td>{{ entry.conversions }}</td>
-          <td>
-            <button class="btn btn-primary btn-sm" (click)="detailsFetch(entry.id)"><i class="fas fa-list-ul"></i> Details</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+<div class="p-3" *ngIf="!isLoading && !isError; else loadingOrError">
+    <div class="card card-table-wrapper">
+      <div class="table-responsive">
+        <table class="table table-hover align-middle">
+          <thead>
+            <tr>
+              <th (click)="toggleSortOrder('id')" style="cursor: pointer;">
+                ID 
+                <i class="fa-solid fa-sort"></i>
+              </th>
+              <th (click)="toggleSortOrder('partnerName')" style="cursor: pointer;">
+                Name 
+                <i class="fa-solid fa-sort"></i>
+              </th>
+              <th (click)="toggleSortOrder('partnerType')" style="cursor: pointer;">
+                Type 
+                <i class="fa-solid fa-sort"></i>
+              </th>
+              <th style="cursor: pointer;" (click)="toggleSortOrder('contract')">
+                Contract <i class="fa-solid fa-sort"></i>
+              </th>
+              <th (click)="toggleSortOrder('grosssales')" style="cursor: pointer;">
+                Gross Sales 
+                <i class="fa-solid fa-sort"></i>
+              </th>
+              <th (click)="toggleSortOrder('commissions')" style="cursor: pointer;">
+                Commissions 
+                <i class="fa-solid fa-sort"></i>
+              </th>
+              <th (click)="toggleSortOrder('conversions')" style="cursor: pointer;">
+                Conversions 
+                <i class="fa-solid fa-sort"></i>
+              </th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let entry of dataToDisplay">
+              <td>{{ entry.id }}</td>
+              <td>{{ entry.partnerName }}</td>
+              <td>{{ entry.partnerType }}</td>
+              <td>{{ entry.contract }}</td>
+              <td>{{ entry.grosssales | currency }}</td>
+              <td>
+                <span *ngIf="entry.commissions !== null; else noData">
+                  {{ entry.commissions | currency }}
+                </span>
+                <ng-template #noData>n/a</ng-template>
+              </td>
+              <td>{{ entry.conversions }}</td>
+              <td>
+                <button class="btn btn-primary btn-sm" (click)="detailsFetch(entry.id)">
+                  <i class="fas fa-list-ul"></i> Details
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
   
-    <!-- Pagination Section -->
-
-    <div class="pagination-container text-center mt-5">
-        <p class="mt-2">
+        <!-- Pagination Section -->
+        <div class="pagination-container text-center mt-5">
+          <p class="mt-2">
             Showing {{ getShowingRange() }} of {{ data.length }} entries
-        </p>
-
-        <nav>
-          <ul class="pagination justify-content-center">
-            <li class="page-item" [class.disabled]="currentPage === 1">
-              <a class="page-link"  (click)="goToPage(currentPage - 1)">&laquo;</a>
-            </li>
-
-            <li 
-              *ngFor="let page of [].constructor(totalPages); let i = index"
-              class="page-item" 
-              [class.active]="currentPage === i + 1"
-            >
-              <a class="page-link" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
-            </li>
-
-            <li class="page-item" [class.disabled]="currentPage === totalPages">
-              <a class="page-link" (click)="goToPage(currentPage + 1)">&raquo;</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
- 
-
-
-
- 
-  </div></div></div>
+          </p>
   
-  <!-- Loading Spinner -->
-  <ng-template #loading>
-    <div class="text-center mt-5">
-      <div class="spinner-border text-primary" role="status">
-        <span class="visually-hidden">Loading...</span>
+          <nav>
+            <ul class="pagination justify-content-center">
+              <li class="page-item" [class.disabled]="currentPage === 1">
+                <a class="page-link" (click)="goToPage(currentPage - 1)">&laquo;</a>
+              </li>
+  
+              <li 
+                *ngFor="let page of [].constructor(totalPages); let i = index"
+                class="page-item" 
+                [class.active]="currentPage === i + 1"
+              >
+                <a class="page-link" (click)="goToPage(i + 1)">{{ i + 1 }}</a>
+              </li>
+  
+              <li class="page-item" [class.disabled]="currentPage === totalPages">
+                <a class="page-link" (click)="goToPage(currentPage + 1)">&raquo;</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
       </div>
-      <p>Loading data, please wait...</p>
     </div>
+  </div>
+  
+  <!-- Loading or Error Template -->
+  <ng-template #loadingOrError>
+    <div *ngIf="isError; else loading" class="text-center mt-5">
+      <div class="alert alert-danger" role="alert">
+        <i class="fas fa-exclamation-circle"></i> An error occurred while loading data. Please try again.
+      </div>
+    </div>
+  
+    <ng-template #loading>
+      <div class="text-center mt-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <p>Loading data, please wait...</p>
+      </div>
+    </ng-template>
   </ng-template>
   

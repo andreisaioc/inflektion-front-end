@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, EventEmitter, Output, SimpleChanges } from '@angular/core';
+import { saveAs } from 'file-saver'; // Import file-saver
 
 @Component({
   selector: 'app-data-table',
@@ -8,6 +9,10 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 export class DataTableComponent implements OnChanges {
   @Input() data: any[] = [];
   @Input() isLoading: boolean = false;
+  @Input() isError: boolean = false;
+
+  @Output() exportCSV: EventEmitter<void> = new EventEmitter<void>(); // Event emitter for export
+
 
   dataToDisplay: any[] = [];
   currentPage: number = 1;
@@ -16,6 +21,39 @@ export class DataTableComponent implements OnChanges {
 
   sortOrder: 'asc' | 'desc' = 'asc';  // Default sort order
   sortColumn: string = 'partnerName'; // Default sort column
+
+  // for exporting to csv just for fun
+
+  private convertToCSV(data: any[]): string {
+    if (!data || data.length === 0) return '';
+
+    const headers = Object.keys(data[0]).join(',') + '\n';
+    const csvRows = data.map(row =>
+      Object.values(row)
+        .map(value => `"${value}"`)
+        .join(',')
+    );
+
+    return headers + csvRows.join('\n');
+  }
+
+
+  exportToCSV(): void {
+
+    if(this.data.length == 0)
+    {
+      alert("Data is not loaded (yet)");
+    }
+    else
+    {
+
+      const csvData = this.convertToCSV(this.data);
+      const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+      saveAs(blob, 'data-table.csv');
+    }
+  }
+
+
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data'] && this.data) {

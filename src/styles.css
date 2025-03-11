@@ -210,3 +210,22 @@ h1
 
     .sidebar-toggle{ display:none}
 }
+
+
+@media (max-width: 1024px) {
+
+    .btn-spacer
+    {
+        width: 100%;
+        
+        margin-bottom:15px
+    }
+
+    .btn-spacer button
+    {
+        width: 100%;
+        text-align: center; /* Centers the text */
+    justify-content: center; /* Centers flex content (icons + text) */
+    }
+}
+

@@ -2,6 +2,26 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
 
+# Summary
+
+Everything was split with components for ease of work and integration with future development.
+
+Worked with AI to make up for boilerplace code, and boring css styling. No major challenges encountered.
+
+Error handling: we are going to display an error instead of the table in case we have an error on the API, and only display the table on success. Export function will give you an error if you try to export before the data loads.
+
+# Versions
+
+This project uses angular v15.2
+This project uses node v22.9.0
+
+Library used:
+
+-font awesome for some icons
+-bootstrap for css
+-file saver for export csv
+-angular default router
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
