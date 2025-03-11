@@ -13,6 +13,7 @@ import { ApprovalsComponent } from './pages/approvals/approvals.component';
 import { DataTableComponent } from './modules/data-table/data-table.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { TableDataService } from './services/table-data.service';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     HttpClientModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [TableDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

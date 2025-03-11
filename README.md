@@ -47,6 +47,7 @@ typescript                      4.9.5<br/>
 
 -implemented sorting<br/>
 -implemented export via csv of the data<br/>
+-implemented data retrieval as a service<br/>
 
 ## Development server
 
