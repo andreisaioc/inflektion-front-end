@@ -12,15 +12,37 @@ Error handling: we are going to display an error instead of the table in case we
 
 # Versions
 
-This project uses angular v15.2
-This project uses node v22.9.0
+This project uses angular v15.2<br/>
+This project uses node v22.9.0<br/>
 
-Library used:
+Angular CLI: 15.2.11
+Node: 22.9.0 (Unsupported)
+Package Manager: npm 10.8.3
+OS: darwin arm64
+
+Angular: 15.2.10
+... animations, common, compiler, compiler-cli, core, forms
+... platform-browser, platform-browser-dynamic, router
+
+Package                         Version
+---------------------------------------------------------
+@angular-devkit/architect       0.1502.11
+@angular-devkit/build-angular   15.2.11
+@angular-devkit/core            15.2.11
+@angular-devkit/schematics      15.2.11
+@angular/cli                    15.2.11
+@schematics/angular             15.2.11
+rxjs                            7.8.2
+typescript                      4.9.5
+
+
+
+Library used:<br/><br/>
  
--font awesome for some icons
--bootstrap for css
--file saver for export csv
--angular default router
+-font awesome for some icons<br/>
+-bootstrap for css<br/>
+-file saver for export csv<br/>
+-angular default router<br/>
 
 ## Development server
 
